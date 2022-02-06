@@ -99,6 +99,7 @@
         "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
     },
     "exclude": [
-        "./dist/**/*"                                        /* Exclude the distribution directory from compilation. */
+        "./dist/**/*",                                       /* Exclude the distribution directory from compilation. */
+        "**/*test.ts"                                        /* Exclude test files */
     ]
 }
