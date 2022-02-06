@@ -14,7 +14,6 @@ program
     .option("--verbose", "Increase the console output")
     .option("-m, --message <message>", "An optional error message to show when the clone does not match the source")
     .action((sourceDir, cloneDir, ignorePatterns, options) => {
-
         const result = cloneCheck(sourceDir, cloneDir, options.verbose, ignorePatterns)
 
         if (!result.success) {

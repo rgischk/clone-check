@@ -10,16 +10,21 @@ export type Result = {
     differentContent: string[]
 }
 
-export function cloneCheck(sourceDirectory: string, cloneDirectory: string, verbose?: boolean, ignorePatterns?: string[]): Result {
+export function cloneCheck(
+    sourceDirectory: string,
+    cloneDirectory: string,
+    verbose?: boolean,
+    ignorePatterns?: string[]
+): Result {
     if (verbose) {
         console.log("")
         console.log("Arguments:", { sourceDirectory, cloneDirectory, ignorePatterns, verbose })
     }
 
-    const sourceEntries = glob.sync("**/*", {cwd: sourceDirectory, ignore: ignorePatterns})
-    const cloneEntries = glob.sync("**/*", {cwd: cloneDirectory, ignore: ignorePatterns})
+    const sourceEntries = glob.sync("**/*", { cwd: sourceDirectory, ignore: ignorePatterns })
+    const cloneEntries = glob.sync("**/*", { cwd: cloneDirectory, ignore: ignorePatterns })
     if (verbose) {
-        console.log("Entries to check:", {sourceEntries, cloneEntries})
+        console.log("Entries to check:", { sourceEntries, cloneEntries })
     }
 
     const missingEntries = []
@@ -41,14 +46,14 @@ export function cloneCheck(sourceDirectory: string, cloneDirectory: string, verb
     }
 
     if (verbose) {
-        console.log("Results:", {sourceEntries, cloneEntries, missingEntries, differentContent})
+        console.log("Results:", { sourceEntries, cloneEntries, missingEntries, differentContent })
     }
 
     return {
         success: missingEntries.length === 0 && cloneEntries.length === 0 && differentContent.length === 0,
         missingEntries,
         cloneEntries,
-        differentContent
+        differentContent,
     }
 }
 
