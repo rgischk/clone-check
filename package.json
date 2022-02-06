@@ -8,11 +8,13 @@
   "license": "Apache-2.0",
   "author": "rgischk",
   "scripts": {
+    "clean": "rimraf node_modules dist",
     "build:esm": "tsc",
     "build:cjs": "tsc --outDir ./dist/cjs/ --module commonjs",
     "build": "yarn build:esm && yarn build:cjs"
   },
-  "dependencies": {
+  "devDependencies": {
+    "rimraf": "^3.0.2",
     "typescript": "^4.5.5"
   }
 }
