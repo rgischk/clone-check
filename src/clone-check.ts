@@ -6,8 +6,8 @@ import fs from "fs"
 export type Result = {
     success: boolean
     missingEntries: string[]
-    cloneEntries: string[]
-    differentContent: string[]
+    additionalEntries: string[]
+    differentEntries: string[]
 }
 
 export function cloneCheck(
@@ -28,7 +28,7 @@ export function cloneCheck(
     }
 
     const missingEntries = []
-    const differentContent = []
+    const differentEntries = []
 
     for (const sourceEntry of sourceEntries) {
         const indexOfCloneEntry = cloneEntries.indexOf(sourceEntry)
@@ -39,21 +39,21 @@ export function cloneCheck(
             missingEntries.push(sourceEntry)
         } else {
             if (!checkEntry(sourceDirectory, cloneDirectory, sourceEntry, verbose)) {
-                differentContent.push(sourceEntry)
+                differentEntries.push(sourceEntry)
             }
             cloneEntries.splice(indexOfCloneEntry, 1)
         }
     }
 
     if (verbose) {
-        console.log("Results:", { sourceEntries, cloneEntries, missingEntries, differentContent })
+        console.log("Results:", { sourceEntries, cloneEntries, missingEntries, differentEntries })
     }
 
     return {
-        success: missingEntries.length === 0 && cloneEntries.length === 0 && differentContent.length === 0,
+        success: missingEntries.length === 0 && cloneEntries.length === 0 && differentEntries.length === 0,
         missingEntries,
-        cloneEntries,
-        differentContent,
+        additionalEntries: cloneEntries,
+        differentEntries,
     }
 }
 

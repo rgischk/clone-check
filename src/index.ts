@@ -21,11 +21,11 @@ program
             if (result.missingEntries.length > 0) {
                 console.log("Missing paths:", result.missingEntries)
             }
-            if (result.cloneEntries.length > 0) {
-                console.log("Additional paths:", result.cloneEntries)
+            if (result.additionalEntries.length > 0) {
+                console.log("Additional paths:", result.additionalEntries)
             }
-            if (result.differentContent.length > 0) {
-                console.log("Different paths:", result.differentContent)
+            if (result.differentEntries.length > 0) {
+                console.log("Different paths:", result.differentEntries)
             }
             console.log("")
             program.error(options.message || "Clone does not match source!")
