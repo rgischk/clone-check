@@ -1,7 +1,7 @@
 import { cloneCheck } from "./clone-check"
 
 describe("clone-check", () => {
-    test("test complex directory structure", () => {
+    test("complex directory structure", () => {
         const result = cloneCheck("testdata/source", "testdata/clone")
 
         expect(result.success).toEqual(false)
@@ -32,9 +32,24 @@ describe("clone-check", () => {
 
         expect(result.differentEntries.sort()).toEqual([
             "deep/different-content.txt",
+            "deep/directory-in-source",
+            "deep/file-in-source",
             "different-content.txt",
             "directory-in-source",
             "file-in-source",
         ])
+    })
+    test("ignore patterns", () => {
+        const result = cloneCheck("testdata/source", "testdata/clone", false, [
+            "**/additional-*",
+            "**/missing-*",
+            "**/different-*",
+            "**/*-in-source",
+        ])
+
+        expect(result.success).toEqual(true)
+        expect(result.additionalEntries.sort()).toEqual([])
+        expect(result.missingEntries.sort()).toEqual([])
+        expect(result.differentEntries.sort()).toEqual([])
     })
 })
