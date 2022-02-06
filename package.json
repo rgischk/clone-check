@@ -1,13 +1,11 @@
 {
     "name": "clone-check",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A utility to check whether a directory is an exact clone of another directory.",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
-    "bin": {
-        "clonecheck": "./dist/cjs/index.js"
-    },
+    "bin": "./dist/cjs/index.js",
     "license": "Apache-2.0",
     "author": "rgischk",
     "files": [
