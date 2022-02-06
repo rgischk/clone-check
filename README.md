@@ -21,7 +21,7 @@ Add a script to your `package.json` to run the clone check:
   "scripts": {
     "test": "...",
     "build": "...",
-    "template:check": "clone-check -m \\\"The template is not up-to-date!\\\" src template tmp test"
+    "template:check": "clone-check -m \"The template is not up-to-date!\" src template tmp test"
   },
 ```
 
