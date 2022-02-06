@@ -7,7 +7,6 @@ const program = new Command()
 
 program
     .name("clone-check")
-    .usage("<sourceDir> <cloneDir> [ignorePatterns...]")
     .argument("<sourceDir>", "The source directory")
     .argument("<cloneDir>", "The clone directory to check")
     .argument("[ignorePatterns...]", "Files and directories to ignore when checking the clone (glob syntax)")

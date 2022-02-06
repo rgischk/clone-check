@@ -7,7 +7,17 @@
     "types": "./dist/esm/index.d.ts",
     "bin": "./dist/cjs/index.js",
     "license": "Apache-2.0",
-    "author": "rgischk",
+    "author": "Roman Gischkowski <dev@rgischk.de>",
+    "keywords": [
+        "clone",
+        "copy",
+        "create-react-app"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rgischk/clone-check.git"
+    },
+    "homepage": "https://github.com/rgischk/clone-check#readme",
     "files": [
         "src",
         "dist"
