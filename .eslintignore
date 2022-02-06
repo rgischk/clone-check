@@ -2,3 +2,4 @@ node_modules
 dist
 .idea
 .eslintrc.js
+.prettierrc.js
