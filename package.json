@@ -22,18 +22,25 @@
         "code:fix": "yarn lint:fix && yarn pretty",
         "build:esm": "tsc",
         "build:cjs": "tsc --outDir ./dist/cjs/ --module commonjs",
-        "build": "yarn build:esm && yarn build:cjs"
+        "build": "yarn build:esm && yarn build:cjs",
+        "cli": "ts-node src/index.ts"
+    },
+    "dependencies": {
+        "commander": "^9.0.0",
+        "glob": "^7.2.0",
+        "md5-file": "^5.0.0"
     },
     "devDependencies": {
+        "@types/glob": "^7.2.0",
         "@types/node": "^17.0.15",
         "@typescript-eslint/eslint-plugin": "^5.10.2",
         "@typescript-eslint/parser": "^5.10.2",
-        "commander": "^9.0.0",
         "eslint": "^8.8.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
         "prettier": "^2.5.1",
         "rimraf": "^3.0.2",
+        "ts-node": "^10.4.0",
         "typescript": "^4.5.5"
     }
 }
