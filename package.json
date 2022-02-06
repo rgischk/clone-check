@@ -1,6 +1,6 @@
 {
     "name": "clone-check",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "A utility to check whether a directory is an exact clone of another directory.",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
