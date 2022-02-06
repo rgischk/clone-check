@@ -8,12 +8,15 @@ The problem in this case is that you have to make sure to keep the test app and 
 In this scenario the clone-check utility will come in handy: It will check whether your test app and template are the same, by running just a single script command.
 
 ## Install
+
 ```bash
 yarn add --dev clone-check
 ```
 
 ## Usage
+
 Add a script to your `package.json` to run the clone check:
+
 ```json
   "scripts": {
     "test": "...",
@@ -23,6 +26,7 @@ Add a script to your `package.json` to run the clone check:
 ```
 
 ## Command line interface
+
 ```text
 Usage: clone-check [options] <sourceDir> <cloneDir> [ignorePatterns...]
 
@@ -38,47 +42,57 @@ Options:
 ```
 
 ## Examples
+
 Basic usage:
+
 ```bash
 clone-check src clone
 ```
 
 Use custom error message:
+
 ```bash
 clone-check -m "The clone directory does not have the same contents as the src directory!" src clone
 ```
 
 Relative source and clone directories:
+
 ```bash
 clone-check . ../other
 ```
 
 Absolute source and clone directories:
+
 ```bash
 clone-check C:/git/my-app/src C:/git/my-app/clone
 ```
 
 Ignore `node_modules` directory (in all subdirectories):
+
 ```bash
 clone-check src clone **/node_modules/**
 ```
 
 Ignore `test` directory (only in root):
+
 ```bash
 clone-check src clone test/**
 ```
 
 Ignore `config.js` file (only in root):
+
 ```bash
 clone-check src clone config.js
 ```
 
 Ignore test files (in all subdirectories):
+
 ```bash
 clone-check src clone **/*.test.js
 ```
 
 Multiple ignore patterns:
+
 ```bash
 clone-check src clone **/*.test.js **/*rc.js config.js **/node_modules/**
 ```
